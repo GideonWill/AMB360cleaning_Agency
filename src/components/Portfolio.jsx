@@ -1,8 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
-import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 // Import video files
+import fumigation1 from '../assets/AMB videos/fumigation1.mp4';
+import fumigation2 from '../assets/AMB videos/fumigation2.mp4';
 import v1 from '../assets/AMB videos/v1.mp4';
 import v2 from '../assets/AMB videos/v2.mp4';
 import v3 from '../assets/AMB videos/v3.mp4';
@@ -12,25 +14,59 @@ import v6 from '../assets/AMB videos/v6.mp4';
 import v7 from '../assets/AMB videos/v7.mp4';
 import v8 from '../assets/AMB videos/v8.mp4';
 import v9 from '../assets/AMB videos/v9.mp4';
-import v10 from '../assets/AMB videos/v10.mp4';
-import v11 from '../assets/AMB videos/v11.mp4';
 import v12 from '../assets/AMB videos/v12.mp4';
 import v13 from '../assets/AMB videos/v13.mp4';
+import v14 from '../assets/AMB videos/v14.mp4';
+import v15 from '../assets/AMB videos/v15.mp4';
+import v16 from '../assets/AMB videos/v16.mp4';
+import v17 from '../assets/AMB videos/v17.mp4';
+import v18 from '../assets/AMB videos/v18.mp4';
+import v19 from '../assets/AMB videos/v19.mp4';
+import v20 from '../assets/AMB videos/v20.mp4';
+
+const serviceLabels = [
+  'Residential/Domestic Cleaning',
+  'Estate Cleaning',
+  'Events Cleaning',
+  'Office Cleaning',
+  'Move-in & Move-out Cleaning',
+  'Hotel Cleaning',
+  'Commercial Cleaning',
+  'Back to School Cleaning',
+  'Post-Construction Cleaning'
+];
+
+const serviceVideoSources = [
+  v1,
+  v2,
+  v3,
+  v4,
+  v5,
+  v6,
+  v7,
+  v8,
+  v9,
+  v12,
+  v13,
+  v14,
+  v15,
+  v16,
+  v17,
+  v18,
+  v19,
+  v20,
+];
+
+const serviceVideos = serviceVideoSources.map((src, index) => ({
+  id: index + 3,
+  src,
+  title: serviceLabels[index % serviceLabels.length],
+}));
 
 const allVideos = [
-  { id: 1, src: v1, title: 'Before & After #1' },
-  { id: 2, src: v2, title: 'Before & After #2' },
-  { id: 3, src: v3, title: 'Before & After #3' },
-  { id: 4, src: v4, title: 'Before & After #4' },
-  { id: 5, src: v5, title: 'Before & After #5' },
-  { id: 6, src: v6, title: 'Before & After #6' },
-  { id: 7, src: v7, title: 'Before & After #7' },
-  { id: 8, src: v8, title: 'Before & After #8' },
-  { id: 9, src: v9, title: 'Before & After #9' },
-  { id: 10, src: v10, title: 'Before & After #10' },
-  { id: 11, src: v11, title: 'Before & After #11' },
-  { id: 12, src: v12, title: 'Before & After #12' },
-  { id: 13, src: v13, title: 'Before & After #13' },
+  { id: 1, src: fumigation1, title: 'Fumigation • Whole-property pest elimination' },
+  { id: 2, src: fumigation2, title: 'Fumigation • Safe environments for families & staff' },
+  ...serviceVideos,
 ];
 
 const Portfolio = ({ videos = allVideos, showTitle = true, limit = null }) => {

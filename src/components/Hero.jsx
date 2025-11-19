@@ -1,7 +1,7 @@
 import { CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { scrollToTop } from '../utils/scrollToTop';
-import heroBg from '../assets/home.jpg';
+import heroBg from '../assets/m2.jpg';
 
 const Hero = () => {
   return (
@@ -9,7 +9,7 @@ const Hero = () => {
       {/* Background image */}
       <div
         className="absolute inset-0 -z-10 bg-center"
-        style={{ backgroundImage: `url(${heroBg})`, backgroundSize: '135% auto', backgroundRepeat: 'no-repeat' }}
+        style={{ backgroundImage: `url(${heroBg})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}
         aria-hidden="true"
       />
       {/* Overlay removed to show background image at 100% opacity */}

@@ -1,4 +1,6 @@
 import { ShieldCheck, Heart, Star, Users } from 'lucide-react';
+import aboutPrimary from '../assets/m3.jpg';
+import aboutSecondary from '../assets/m4.jpg';
 
 const About = () => {
   const values = [
@@ -68,13 +70,25 @@ const About = () => {
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <img
-              src="https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?w=800&h=600&fit=crop&q=80"
-              alt="Professional cleaning team - AMB 360 Cleaning Agency"
-              className="rounded-2xl shadow-xl w-full"
-              loading="lazy"
-            />
+          <div className="relative">
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+              <div className="rounded-[32px] overflow-hidden shadow-2xl ring-1 ring-black/10 w-full aspect-[4/5] sm:aspect-[3/4]">
+                <img
+                  src={aboutPrimary}
+                  alt="AMB 360 team detailing a modern kitchen"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+              <div className="rounded-[32px] overflow-hidden shadow-xl ring-1 ring-black/10 w-full aspect-[4/5] sm:aspect-[3/4]">
+                <img
+                  src={aboutSecondary}
+                  alt="AMB 360 floor polishing service"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+            </div>
           </div>
           <div>
             <h3 className="text-3xl font-bold text-blue-600 mb-6">
