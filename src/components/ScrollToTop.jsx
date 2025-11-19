@@ -7,7 +7,6 @@ const ScrollToTop = () => {
   const [showButton, setShowButton] = useState(false);
 
   useEffect(() => {
-    // Scroll to top smoothly when route changes
     window.scrollTo({
       top: 0,
       left: 0,
@@ -15,7 +14,6 @@ const ScrollToTop = () => {
     });
   }, [pathname]);
 
-  // Track scroll to toggle button visibility
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY || document.documentElement.scrollTop;
@@ -42,11 +40,17 @@ const ScrollToTop = () => {
         <button
           type="button"
           onClick={handleScrollUp}
-          className="fixed bottom-6 right-6 z-[1000] flex items-center gap-2 rounded-full bg-primary-600 text-white px-4 py-3 shadow-xl hover:bg-primary-700 transition-colors focus:outline-none focus-visible:ring-4 focus-visible:ring-primary-200"
+          className="fixed z-40 right-4 bottom-28 sm:bottom-24 flex flex-col items-center gap-3 text-slate-700 hover:text-primary-600 transition-colors"
           aria-label="Scroll back to top"
         >
           <ArrowUp className="w-4 h-4" />
-          <span className="text-sm font-semibold uppercase tracking-wider">Top</span>
+          <span
+            className="text-xs font-semibold tracking-[0.4em]"
+            style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
+          >
+            SCROLL TO TOP
+          </span>
+          <span className="block w-px h-8 bg-slate-400" aria-hidden="true" />
         </button>
       )}
     </>
