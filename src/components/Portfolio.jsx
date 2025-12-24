@@ -24,6 +24,9 @@ import v18 from '../assets/AMB videos/v18.mp4';
 import v19 from '../assets/AMB videos/v19.mp4';
 import v20 from '../assets/AMB videos/v20.mp4';
 
+// Import image files
+import homeCleaningImage from '../assets/home cleaning.jpeg';
+
 const serviceLabels = [
   'Residential/Domestic Cleaning',
   'Estate Cleaning',
@@ -61,12 +64,14 @@ const serviceVideos = serviceVideoSources.map((src, index) => ({
   id: index + 3,
   src,
   title: serviceLabels[index % serviceLabels.length],
+  type: 'video',
 }));
 
 const allVideos = [
-  { id: 1, src: fumigation1, title: 'Fumigation • Whole-property pest elimination' },
-  { id: 2, src: fumigation2, title: 'Fumigation • Safe environments for families & staff' },
+  { id: 1, src: fumigation1, title: 'Fumigation • Whole-property pest elimination', type: 'video' },
+  { id: 2, src: fumigation2, title: 'Fumigation • Safe environments for families & staff', type: 'video' },
   ...serviceVideos,
+  { id: 100, src: homeCleaningImage, title: 'Home cleaning', type: 'image' },
 ];
 
 const Portfolio = ({ videos = allVideos, showTitle = true, limit = null }) => {
@@ -77,7 +82,7 @@ const Portfolio = ({ videos = allVideos, showTitle = true, limit = null }) => {
 
   const displayVideos = limit ? videos.slice(0, limit) : videos;
 
-  const openVideo = (video, event) => {
+  const openVideo = (item, event) => {
     if (event) {
       event.preventDefault();
       event.stopPropagation();
@@ -94,8 +99,10 @@ const Portfolio = ({ videos = allVideos, showTitle = true, limit = null }) => {
     document.body.style.width = '100%';
     document.body.style.overflow = 'hidden';
     
-    setSelectedVideo(video);
-    setIsPlaying(true);
+    setSelectedVideo(item);
+    if (item.type === 'video') {
+      setIsPlaying(true);
+    }
   };
 
   const navigateVideo = (direction) => {
@@ -111,7 +118,7 @@ const Portfolio = ({ videos = allVideos, showTitle = true, limit = null }) => {
     }
     
     setSelectedVideo(displayVideos[newIndex]);
-    if (videoRef.current) {
+    if (videoRef.current && displayVideos[newIndex].type === 'video') {
       videoRef.current.currentTime = 0;
     }
   };
@@ -161,7 +168,7 @@ const Portfolio = ({ videos = allVideos, showTitle = true, limit = null }) => {
 
   // Handle video playback when modal opens
   useEffect(() => {
-    if (selectedVideo && videoRef.current) {
+    if (selectedVideo && selectedVideo.type === 'video' && videoRef.current) {
       // Small delay to ensure video element is fully mounted
       const timer = setTimeout(() => {
         const playVideo = async () => {
@@ -199,26 +206,35 @@ const Portfolio = ({ videos = allVideos, showTitle = true, limit = null }) => {
         )}
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {displayVideos.map((video) => (
+          {displayVideos.map((item) => (
             <button
-              key={video.id}
+              key={item.id}
               type="button"
-              onClick={(e) => openVideo(video, e)}
+              onClick={(e) => openVideo(item, e)}
               className="group relative bg-gray-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 focus:outline-none focus-visible:ring-4 focus-visible:ring-primary-200"
-              aria-label={`Play ${video.title}`}
+              aria-label={item.type === 'video' ? `Play ${item.title}` : `View ${item.title}`}
             >
               <div className="relative aspect-video w-full">
-                <video
-                  src={video.src}
-                  className="w-full h-full object-cover"
-                  muted
-                  loop
-                  autoPlay
-                  playsInline
-                />
+                {item.type === 'video' ? (
+                  <video
+                    src={item.src}
+                    className="w-full h-full object-cover"
+                    muted
+                    loop
+                    autoPlay
+                    playsInline
+                  />
+                ) : (
+                  <img
+                    src={item.src}
+                    alt={item.title}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 <div className="absolute bottom-4 left-4 right-4">
-                  <p className="text-white font-semibold text-sm">{video.title}</p>
+                  <p className="text-white font-semibold text-sm">{item.title}</p>
                 </div>
               </div>
             </button>
@@ -262,46 +278,59 @@ const Portfolio = ({ videos = allVideos, showTitle = true, limit = null }) => {
               <div 
                 className="w-full bg-gray-900 flex items-center justify-center relative"
                 style={{ 
-                  aspectRatio: '16/9',
+                  aspectRatio: selectedVideo.type === 'image' ? 'auto' : '16/9',
                   maxHeight: '80vh',
                   minHeight: '400px'
                 }}
               >
-                <video
-                  ref={videoRef}
-                  src={selectedVideo.src}
-                  controls
-                  autoPlay
-                  muted
-                  playsInline
-                  className="w-full h-full object-contain rounded-t-xl"
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    display: 'block'
-                  }}
-                  onPlay={() => {
-                    setIsPlaying(true);
-                  }}
-                  onPause={() => setIsPlaying(false)}
-                  onLoadedData={() => {
-                    if (videoRef.current) {
-                      videoRef.current.play().catch((err) => {
-                        console.log('Video autoplay error:', err);
-                      });
-                    }
-                  }}
-                  onCanPlay={() => {
-                    // Try to play when video can start playing
-                    if (videoRef.current && videoRef.current.paused) {
-                      videoRef.current.play().catch((err) => {
-                        console.log('Video autoplay on canPlay error:', err);
-                      });
-                    }
-                  }}
-                >
-                  Your browser does not support the video tag.
-                </video>
+                {selectedVideo.type === 'video' ? (
+                  <video
+                    ref={videoRef}
+                    src={selectedVideo.src}
+                    controls
+                    autoPlay
+                    muted
+                    playsInline
+                    className="w-full h-full object-contain rounded-t-xl"
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      display: 'block'
+                    }}
+                    onPlay={() => {
+                      setIsPlaying(true);
+                    }}
+                    onPause={() => setIsPlaying(false)}
+                    onLoadedData={() => {
+                      if (videoRef.current) {
+                        videoRef.current.play().catch((err) => {
+                          console.log('Video autoplay error:', err);
+                        });
+                      }
+                    }}
+                    onCanPlay={() => {
+                      // Try to play when video can start playing
+                      if (videoRef.current && videoRef.current.paused) {
+                        videoRef.current.play().catch((err) => {
+                          console.log('Video autoplay on canPlay error:', err);
+                        });
+                      }
+                    }}
+                  >
+                    Your browser does not support the video tag.
+                  </video>
+                ) : (
+                  <img
+                    src={selectedVideo.src}
+                    alt={selectedVideo.title}
+                    className="w-full h-full object-contain rounded-t-xl"
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      display: 'block'
+                    }}
+                  />
+                )}
               </div>
               
               {/* Navigation buttons at bottom */}
