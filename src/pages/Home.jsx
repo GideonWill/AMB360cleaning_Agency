@@ -8,8 +8,9 @@ import Testimonials from '../components/Testimonials';
 import CalloutCTA from '../components/CalloutCTA';
 import Portfolio, { allVideos } from '../components/Portfolio';
 import { Link } from 'react-router-dom';
-import showcasePrimary from '../assets/m3.jpg';
-import showcaseSecondary from '../assets/m4.jpg';
+import showcasePrimary from '../assets/deep cleaning.jpg';
+import showcaseSecondary from '../assets/residential cleaning.jpg';
+import SEO from '../components/SEO';
 import fumigationHeroVideo from '../assets/AMB videos/fumigation1.mp4';
 
 const Home = () => {
@@ -25,7 +26,7 @@ const Home = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            videoElement.play().catch(() => {});
+            videoElement.play().catch(() => { });
           } else {
             videoElement.pause();
           }
@@ -43,6 +44,10 @@ const Home = () => {
 
   return (
     <div className="space-y-0">
+      <SEO
+        title="Professional Cleaning & Fumigation Services in Accra | amb360cleaningagency"
+        description="amb360cleaningagency offers professional cleaning and fumigation services in Accra. Safe, reliable pest control for homes, offices, and businesses."
+      />
       <Hero />
       <section className="bg-slate-950 text-white py-16 sm:py-20 md:py-24">
         <div className="container-custom flex flex-col gap-12 lg:grid lg:grid-cols-2 lg:items-center lg:gap-14">

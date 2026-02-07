@@ -5,11 +5,13 @@ const Contact = () => {
     <section id="contact" className="section-padding bg-white">
       <div className="container-custom">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-blue-600 mb-4">
-            Get In Touch
-          </h2>
+          <h1 className="text-4xl md:text-5xl font-bold text-blue-600 mb-4">
+            Contact amb360cleaningagency
+          </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-2">
-            Book online, by phone, or through social media
+            Get in touch with amb360cleaningagency for professional cleaning and fumigation services in Accra.
+            <br />
+            Our team is available to answer your questions, provide quotations, and schedule cleaning or pest control services.
           </p>
           <div className="w-24 h-1 bg-primary-600 mx-auto rounded-full"></div>
         </div>
@@ -19,7 +21,7 @@ const Contact = () => {
           <div className="space-y-8">
             <div>
               <h3 className="text-2xl font-bold text-blue-600 mb-6">Contact Information</h3>
-              
+
               <div className="space-y-6">
                 <div className="flex items-start">
                   <div className="text-primary-600 text-2xl mr-4"><Phone className="w-5 h-5" /></div>
@@ -35,9 +37,9 @@ const Contact = () => {
                   <div className="text-primary-600 text-2xl mr-4"><MessageCircle className="w-5 h-5" /></div>
                   <div>
                     <h4 className="font-semibold text-blue-600 mb-1">WhatsApp</h4>
-                    <a 
-                      href="https://wa.me/233535548408" 
-                      target="_blank" 
+                    <a
+                      href="https://wa.me/233535548408"
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="text-gray-600 hover:text-primary-600"
                     >
@@ -61,9 +63,9 @@ const Contact = () => {
                   <div className="text-primary-600 text-2xl mr-4"><Instagram className="w-5 h-5" /></div>
                   <div>
                     <h4 className="font-semibold text-blue-600 mb-1">Instagram</h4>
-                    <a 
-                      href="https://instagram.com/amb_360_cleaning_agency" 
-                      target="_blank" 
+                    <a
+                      href="https://instagram.com/amb_360_cleaning_agency"
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="text-gray-600 hover:text-primary-600"
                     >
@@ -77,7 +79,7 @@ const Contact = () => {
             <div className="bg-primary-600 text-white p-8 rounded-xl">
               <h3 className="text-2xl font-bold text-blue-600 mb-4">Book A Free Consultation</h3>
               <p className="mb-6">
-                At AMB 360 Cleaning Agency, we treat every space with care. Whether it's your home, 
+                At AMB 360 Cleaning Agency, we treat every space with care. Whether it's your home,
                 office, or commercial space, we tailor our services to fit your lifestyle and expectations.
               </p>
               <a href="tel:+233535548408" className="btn-secondary bg-white text-primary-600 inline-block">

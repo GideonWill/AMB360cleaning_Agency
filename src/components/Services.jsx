@@ -1,12 +1,12 @@
 
 import { Home, Building2, CalendarCheck, Briefcase, KeyRound, BedDouble, Factory, GraduationCap, Hammer, ShieldAlert } from 'lucide-react';
-import servicesHero from '../assets/m1.jpg';
+import servicesHero from '../assets/Estate Cleaning.jpg';
 
 const services = [
   {
     id: 1,
-    title: "Residential/Domestic Cleaning",
-    description: "Regular home cleaning services to keep your living space spotless and healthy.",
+    title: "Residential Cleaning & Fumigation",
+    description: "Our residential cleaning and fumigation services eliminate pests, bacteria, and allergens from homes, ensuring a clean, safe, and comfortable living environment.",
     icon: Home,
     color: "from-primary-500 to-primary-600"
   },
@@ -26,8 +26,8 @@ const services = [
   },
   {
     id: 4,
-    title: "Office Cleaning",
-    description: "Professional office cleaning to maintain a clean and productive workspace.",
+    title: "Commercial & Office Cleaning",
+    description: "amb360cleaningagency provides professional cleaning and fumigation services for offices, shops, warehouses, and commercial facilities across Accra.",
     icon: Briefcase,
     color: "from-secondary-500 to-secondary-600"
   },
@@ -47,8 +47,8 @@ const services = [
   },
   {
     id: 7,
-    title: "Commercial Cleaning",
-    description: "Complete commercial cleaning solutions for businesses of all sizes.",
+    title: "Disinfection & Sanitization",
+    description: "Our disinfecting and sanitization services help reduce the spread of germs and viruses in homes, offices, and high-traffic environments.",
     icon: Factory,
     color: "from-slate-600 to-slate-700"
   },
@@ -68,8 +68,8 @@ const services = [
   },
   {
     id: 10,
-    title: "Fumigation",
-    description: "Professional fumigation services to eliminate pests and ensure a healthy environment.",
+    title: "Pest Control & Fumigation",
+    description: "We offer effective pest control and fumigation services to eliminate cockroaches, rodents, termites, mosquitoes, and other pests using approved treatment methods.",
     icon: ShieldAlert,
     color: "from-red-500 to-red-600"
   }
@@ -99,11 +99,11 @@ const Services = () => {
         </div>
 
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-blue-600 mb-4">
-            Our Services
-          </h2>
+          <h1 className="text-4xl md:text-5xl font-bold text-blue-600 mb-4">
+            Our Cleaning and Fumigation Services
+          </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-2">
-            Professional cleaning services tailored to your needs
+            Professional cleaning and fumigation services in Accra
           </p>
           <div className="w-24 h-1 bg-primary-600 mx-auto rounded-full"></div>
         </div>

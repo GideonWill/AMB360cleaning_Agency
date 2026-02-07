@@ -1,6 +1,6 @@
 import { ShieldCheck, Heart, Star, Users } from 'lucide-react';
-import aboutPrimary from '../assets/m3.jpg';
-import aboutSecondary from '../assets/m4.jpg';
+import aboutPrimary from '../assets/deep cleaning.jpg';
+import aboutSecondary from '../assets/residential cleaning.jpg';
 
 const About = () => {
   const values = [
@@ -52,12 +52,12 @@ const About = () => {
                 key={index}
                 className={`bg-white p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow duration-300 ${colors[index]}`}
               >
-              <div className="mb-4 mx-auto w-12 h-12 rounded-lg bg-primary-50 flex items-center justify-center">
-                {(() => {
-                  const Icon = value.icon;
-                  return <Icon className="w-6 h-6 text-primary-600" />;
-                })()}
-              </div>
+                <div className="mb-4 mx-auto w-12 h-12 rounded-lg bg-primary-50 flex items-center justify-center">
+                  {(() => {
+                    const Icon = value.icon;
+                    return <Icon className="w-6 h-6 text-primary-600" />;
+                  })()}
+                </div>
                 <h3 className="text-xl font-bold text-blue-600 mb-3">
                   {value.title}
                 </h3>
@@ -95,13 +95,13 @@ const About = () => {
               Honest. Simple. Professional.
             </h3>
             <p className="text-lg text-gray-600 mb-4">
-              At AMB 360 Cleaning Agency, we treat every space with care and attention to detail. 
-              Whether it's your home, office, or commercial space, we tailor our services to fit 
+              At AMB 360 Cleaning Agency, we treat every space with care and attention to detail.
+              Whether it's your home, office, or commercial space, we tailor our services to fit
               your lifestyle and expectations.
             </p>
             <p className="text-lg text-gray-600 mb-6">
-              Our team of experienced professionals is committed to delivering exceptional cleaning 
-              services that exceed your expectations. We use eco-friendly products and modern 
+              Our team of experienced professionals is committed to delivering exceptional cleaning
+              services that exceed your expectations. We use eco-friendly products and modern
               cleaning techniques to ensure a safe and healthy environment.
             </p>
             <div className="flex items-center gap-4">

@@ -89,7 +89,7 @@ const Portfolio = ({ videos = allVideos, showTitle = true, limit = null }) => {
     }
     // Save current scroll position
     scrollPositionRef.current = window.pageYOffset || document.documentElement.scrollTop;
-    
+
     // Prevent body scroll - lock position without moving viewport
     const scrollY = window.scrollY;
     document.body.style.position = 'fixed';
@@ -98,7 +98,7 @@ const Portfolio = ({ videos = allVideos, showTitle = true, limit = null }) => {
     document.body.style.right = '0';
     document.body.style.width = '100%';
     document.body.style.overflow = 'hidden';
-    
+
     setSelectedVideo(item);
     if (item.type === 'video') {
       setIsPlaying(true);
@@ -107,16 +107,16 @@ const Portfolio = ({ videos = allVideos, showTitle = true, limit = null }) => {
 
   const navigateVideo = (direction) => {
     if (!selectedVideo) return;
-    
+
     const currentIndex = displayVideos.findIndex(v => v.id === selectedVideo.id);
     let newIndex;
-    
+
     if (direction === 'prev') {
       newIndex = currentIndex > 0 ? currentIndex - 1 : displayVideos.length - 1;
     } else {
       newIndex = currentIndex < displayVideos.length - 1 ? currentIndex + 1 : 0;
     }
-    
+
     setSelectedVideo(displayVideos[newIndex]);
     if (videoRef.current && displayVideos[newIndex].type === 'video') {
       videoRef.current.currentTime = 0;
@@ -129,7 +129,7 @@ const Portfolio = ({ videos = allVideos, showTitle = true, limit = null }) => {
       videoRef.current.pause();
       videoRef.current.currentTime = 0;
     }
-    
+
     // Restore body scroll and position FIRST
     const scrollY = document.body.style.top;
     document.body.style.position = '';
@@ -138,11 +138,11 @@ const Portfolio = ({ videos = allVideos, showTitle = true, limit = null }) => {
     document.body.style.right = '';
     document.body.style.width = '';
     document.body.style.overflow = '';
-    
+
     // Restore scroll position
     const scrollPosition = scrollY ? parseInt(scrollY.replace('px', '')) * -1 : scrollPositionRef.current;
     window.scrollTo(0, scrollPosition);
-    
+
     // Clear state after restoring scroll
     setSelectedVideo(null);
     setIsPlaying(false);
@@ -185,7 +185,7 @@ const Portfolio = ({ videos = allVideos, showTitle = true, limit = null }) => {
         };
         playVideo();
       }, 100);
-      
+
       return () => clearTimeout(timer);
     }
   }, [selectedVideo]);
@@ -195,11 +195,12 @@ const Portfolio = ({ videos = allVideos, showTitle = true, limit = null }) => {
       <div className="container-custom">
         {showTitle && (
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-blue-600 mb-4">
-              Our Portfolio
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-2">
-              Before & After Transformations
+            <h1 className="text-4xl md:text-5xl font-bold text-blue-600 mb-4">
+              Our Cleaning and Fumigation Projects
+            </h1>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-2">
+              Our portfolio showcases successful cleaning and fumigation projects completed by amb360cleaningagency.
+              From residential homes to office buildings and commercial facilities, each project reflects our commitment to quality, safety, and professional service delivery.
             </p>
             <div className="w-24 h-1 bg-primary-600 mx-auto rounded-full"></div>
           </div>
@@ -275,9 +276,9 @@ const Portfolio = ({ videos = allVideos, showTitle = true, limit = null }) => {
                 position: 'relative'
               }}
             >
-              <div 
+              <div
                 className="w-full bg-gray-900 flex items-center justify-center relative"
-                style={{ 
+                style={{
                   aspectRatio: selectedVideo.type === 'image' ? 'auto' : '16/9',
                   maxHeight: '80vh',
                   minHeight: '400px'
@@ -332,7 +333,7 @@ const Portfolio = ({ videos = allVideos, showTitle = true, limit = null }) => {
                   />
                 )}
               </div>
-              
+
               {/* Navigation buttons at bottom */}
               <div className="bg-gray-800 px-6 py-4 flex items-center justify-between gap-4">
                 <button
@@ -347,7 +348,7 @@ const Portfolio = ({ videos = allVideos, showTitle = true, limit = null }) => {
                   <ChevronLeft className="w-5 h-5" />
                   Prev
                 </button>
-                
+
                 <button
                   type="button"
                   onClick={(e) => {
@@ -359,7 +360,7 @@ const Portfolio = ({ videos = allVideos, showTitle = true, limit = null }) => {
                 >
                   Close
                 </button>
-                
+
                 <button
                   type="button"
                   onClick={(e) => {

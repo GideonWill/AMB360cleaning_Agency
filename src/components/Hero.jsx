@@ -1,7 +1,7 @@
 import { CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { scrollToTop } from '../utils/scrollToTop';
-import heroBg from '../assets/m2.jpg';
+import heroBg from '../assets/estate cleaning in accra.jpg';
 
 const Hero = () => {
   return (
@@ -18,11 +18,13 @@ const Hero = () => {
       <div className="container-custom">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="text-center md:text-left bg-white/60 backdrop-blur-sm rounded-xl p-4 md:p-6 shadow-sm">
-            <h1 className="text-5xl md:text-7xl font-bold text-blue-600 mb-6">
-              We Clean
+            <h1 className="text-3xl md:text-5xl font-bold text-blue-600 mb-6">
+              Professional Cleaning and Fumigation Services in Accra
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 mb-8">
-              Professional cleaning services in Accra, Ghana. Trusted, reliable, and thorough.
+            <p className="text-lg md:text-xl text-gray-600 mb-8">
+              amb360cleaningagency provides professional cleaning and fumigation designed to keep homes and offices safe and pest-free.
+              <br className="hidden md:block" />
+              We use eco-friendly products to deliver effective deep cleaning solutions across Accra.
             </p>
             <ul className="text-left inline-grid gap-2.5 text-gray-700 mb-6 text-sm md:text-base">
               <li className="flex items-center gap-2.5"><CheckCircle2 className="w-4 h-4 text-primary-600" /> Background checked professionals</li>
@@ -52,7 +54,7 @@ const Hero = () => {
               </div>
             </div>
           </div>
-          
+
           <div className="relative" aria-hidden="true"></div>
         </div>
       </div>
