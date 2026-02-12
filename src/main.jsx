@@ -21,7 +21,7 @@ const ensureFavicon = () => {
 
 ensureFavicon();
 
-import { HelmetProvider } from 'react-helmet-async';
+import { HelmetProvider } from '@dr.pogodin/react-helmet';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
