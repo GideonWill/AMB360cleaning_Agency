@@ -23,6 +23,7 @@ import v17 from '../assets/AMB videos/v17.mp4';
 import v18 from '../assets/AMB videos/v18.mp4';
 import v19 from '../assets/AMB videos/v19.mp4';
 import v20 from '../assets/AMB videos/v20.mp4';
+import v21 from '../assets/AMB videos/v21.mp4';
 
 // Import image files
 import homeCleaningImage from '../assets/home cleaning.jpeg';
@@ -58,6 +59,7 @@ const serviceVideoSources = [
   v18,
   v19,
   v20,
+  v21,
 ];
 
 const serviceVideos = serviceVideoSources.map((src, index) => ({
@@ -70,6 +72,7 @@ const serviceVideos = serviceVideoSources.map((src, index) => ({
 const allVideos = [
   { id: 1, src: fumigation1, title: 'Fumigation • Whole-property pest elimination', type: 'video' },
   { id: 2, src: fumigation2, title: 'Fumigation • Safe environments for families & staff', type: 'video' },
+  { id: 2.5, src: v21, title: 'New Completed Project', type: 'video' },
   ...serviceVideos,
   { id: 100, src: homeCleaningImage, title: 'Home cleaning', type: 'image' },
 ];

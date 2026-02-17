@@ -12,9 +12,11 @@ import showcasePrimary from '../assets/deep cleaning.jpg';
 import showcaseSecondary from '../assets/residential cleaning.jpg';
 import SEO from '../components/SEO';
 import fumigationHeroVideo from '../assets/AMB videos/fumigation1.mp4';
+import newProjectVideo from '../assets/AMB videos/v21.mp4';
 
 const Home = () => {
   const heroVideoRef = useRef(null);
+  const newProjectVideoRef = useRef(null);
   // Show first 3 videos on homepage
   const homepageVideos = allVideos.slice(0, 3);
 
@@ -26,16 +28,17 @@ const Home = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            videoElement.play().catch(() => { });
+            entry.target.play().catch(() => { });
           } else {
-            videoElement.pause();
+            entry.target.pause();
           }
         });
       },
       { threshold: 0.4 }
     );
 
-    observer.observe(videoElement);
+    if (videoElement) observer.observe(videoElement);
+    if (newProjectVideoRef.current) observer.observe(newProjectVideoRef.current);
 
     return () => {
       observer.disconnect();
@@ -49,6 +52,57 @@ const Home = () => {
         description="amb360cleaningagency offers professional cleaning and fumigation services in Accra. Safe, reliable pest control for homes, offices, and businesses."
       />
       <Hero />
+
+      {/* New Completed Project Section */}
+      <section className="bg-white py-16 sm:py-20 md:py-24">
+        <div className="container-custom flex flex-col-reverse gap-12 lg:grid lg:grid-cols-2 lg:items-center lg:gap-14">
+          <div className="relative w-full max-w-3xl mx-auto lg:mx-0">
+            <div className="rounded-[24px] sm:rounded-[32px] overflow-hidden shadow-2xl ring-1 ring-black/10 w-full aspect-video min-h-[220px] sm:min-h-[260px]">
+              <video
+                ref={newProjectVideoRef}
+                src={newProjectVideo}
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                className="w-full h-full object-cover"
+                aria-label="New Completed Project Video"
+              />
+              <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/30 to-transparent" />
+            </div>
+            <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-primary-600/10 rounded-full blur-2xl -z-10" />
+            <div className="absolute -top-6 -left-6 w-32 h-32 bg-blue-600/10 rounded-full blur-3xl -z-10" />
+          </div>
+
+          <div className="space-y-6 text-center lg:text-left max-w-2xl mx-auto lg:mx-0">
+            <div className="inline-block px-4 py-1.5 bg-primary-50 text-primary-700 rounded-full text-xs font-bold uppercase tracking-wider mb-2">
+              Recent Achievement
+            </div>
+            <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 leading-tight">
+              New <span className="text-primary-600">Completed</span> Project
+            </h2>
+            <p className="text-lg text-slate-600 leading-relaxed">
+              We recently completed a comprehensive deep cleaning and fumigation project that transformed this space.
+              Our team's attention to detail ensures every corner is sanitized, refreshed, and perfectly prepared
+              for immediate use.
+            </p>
+            <div className="flex flex-wrap gap-4 justify-center lg:justify-start pt-2">
+              <div className="flex items-center gap-2 text-slate-700 font-medium">
+                <span className="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center text-white text-[10px]">✓</span>
+                Deep Cleaned
+              </div>
+              <div className="flex items-center gap-2 text-slate-700 font-medium">
+                <span className="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center text-white text-[10px]">✓</span>
+                Fully Sanitized
+              </div>
+              <div className="flex items-center gap-2 text-slate-700 font-medium">
+                <span className="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center text-white text-[10px]">✓</span>
+                Safety Certified
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <section className="bg-slate-950 text-white py-16 sm:py-20 md:py-24">
         <div className="container-custom flex flex-col gap-12 lg:grid lg:grid-cols-2 lg:items-center lg:gap-14">
           <div className="space-y-6 text-center lg:text-left max-w-2xl mx-auto lg:mx-0">

@@ -19,12 +19,12 @@ const Hero = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="text-center md:text-left bg-white/60 backdrop-blur-sm rounded-xl p-4 md:p-6 shadow-sm">
             <h1 className="text-3xl md:text-5xl font-bold text-blue-600 mb-6">
-              Professional Cleaning and Fumigation Services in Accra
+              Professional Cleaning and Fumigation Services in Ghana
             </h1>
             <p className="text-lg md:text-xl text-gray-600 mb-8">
               amb360cleaningagency provides professional cleaning and fumigation designed to keep homes and offices safe and pest-free.
               <br className="hidden md:block" />
-              We use eco-friendly products to deliver effective deep cleaning solutions across Accra.
+              We use eco-friendly products to deliver effective deep cleaning solutions across Ghana.
             </p>
             <ul className="text-left inline-grid gap-2.5 text-gray-700 mb-6 text-sm md:text-base">
               <li className="flex items-center gap-2.5"><CheckCircle2 className="w-4 h-4 text-primary-600" /> Background checked professionals</li>
@@ -44,7 +44,7 @@ const Hero = () => {
                 <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?w=120&h=80&fit=crop&q=60" alt="clients" className="w-16 h-10 rounded object-cover" />
                 <div>
                   <div className="font-semibold text-gray-900">Trusted by 200+ clients</div>
-                  <div>Across Accra & surrounding areas</div>
+                  <div>Across Ghana</div>
                 </div>
               </div>
               <div className="hidden sm:block w-px h-8 bg-gray-200" />

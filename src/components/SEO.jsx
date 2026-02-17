@@ -1,4 +1,4 @@
-import { Helmet } from '@dr.pogodin/react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 const SEO = ({ title, description, name = 'amb360cleaningagency', type = 'website' }) => {
     return (
