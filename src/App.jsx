@@ -14,7 +14,7 @@ import Suspended from './pages/Suspended';
 
 function App() {
   const location = useLocation();
-  const isSuspended = true; // Toggle this to false to restore the site
+  const isSuspended = false; // Toggle this to false to restore the site
 
   // Scroll to top on route change
   useEffect(() => {
