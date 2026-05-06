@@ -10,9 +10,11 @@ import ContactPage from './pages/ContactPage';
 import PortfolioPage from './pages/PortfolioPage';
 import PageShell from './components/PageShell';
 import Chatbot from './components/Chatbot';
+import Suspended from './pages/Suspended';
 
 function App() {
   const location = useLocation();
+  const isSuspended = true; // Toggle this to false to restore the site
 
   // Scroll to top on route change
   useEffect(() => {
@@ -22,6 +24,10 @@ function App() {
       behavior: 'smooth'
     });
   }, [location.pathname]);
+
+  if (isSuspended) {
+    return <Suspended />;
+  }
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
